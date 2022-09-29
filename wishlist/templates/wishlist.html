@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e2e5e7;">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">{{nama}}</span>
+      <a class="btn btn-outline-secondary" href="{% url 'wishlist:logout' %}" role="button">Logout</a>
+    
+    </div>
+</nav>
+
 <h5>{{nama}} </h5>
 <p>Fill me!</p>
 
-<table>
-    <tr>
+<table class="table">
+    <tr class="thead-dark">
     <th>Nama Barang</th>
     <th>Harga Barang</th>
     <th>Deskripsi</th>
@@ -19,5 +27,6 @@
         </tr>
     {% endfor %}
 </table>
-
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 {% endblock content %}
